@@ -1,0 +1,5 @@
+---
+description: styleguide
+globs: *.R
+---
+The maximum line length is 100 characters.

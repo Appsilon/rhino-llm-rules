@@ -1,0 +1,45 @@
+---
+description: Rules for unit tests.
+globs: tests/testthat/*.R
+---
+There should be only one test file per script, named `test-{script name}.R`.
+
+If testting private functions (ones that are not exported), use this pattern:
+```r
+box::use(app/logic/mymod)
+
+impl <- attr(mymod, "namespace")
+
+test_that('{test description}', {
+    expect_true(impl$this_works())
+})
+```
+
+# Testing exported and non-exported functions
+
+When testing a box module that contains both exported and non-exported functions:
+
+1. Import the entire module without specifying individual functions:
+```r
+box::use(
+  app/logic/mymodule,
+)
+```
+
+2. Access exported functions using the module name with `$`:
+```r
+test_that("exported function works", {
+  expect_equal(mymodule$exported_function(1), 2)
+})
+```
+
+3. For testing non-exported functions, get the module's namespace at the start of the test file:
+```r
+impl <- attr(mymodule, "namespace")
+
+test_that("non-exported function works", {
+  expect_equal(impl$internal_function(1), 2)
+})
+```
+
+This pattern allows testing both public and private functions while maintaining proper encapsulation.
