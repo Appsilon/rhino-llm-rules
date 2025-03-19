@@ -2,6 +2,9 @@
 description: Rules for unit tests.
 globs: tests/testthat/*.R
 ---
+
+All R unit tests are located in `tests/testthat`.
+
 There should be only one test file per script, named `test-{script name}.R`.
 
 If testting private functions (ones that are not exported), use this pattern:

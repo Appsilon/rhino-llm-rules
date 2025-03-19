@@ -1,8 +1,10 @@
 ---
 description: Rules for importing using `box` package.
 globs: *.R
+alwaysApply: false
 ---
 # General rules
+
 Use only `box::use` for imports. Using `library` and `::` is forbidden.
 `box::use` statement (if needed) should be located at the top of the file.
 There can be two `box::use` statements per file. First one should include only R packages, second should only import other scripts.
@@ -12,6 +14,7 @@ All external functions in a script should be imported. This includes operators, 
 A script should only import functions that it uses.
 
 # Ways of importing
+
 There are two ways a package or a script can be imported.
 1. List imported functions - functions imported are listed in []
 ```r
