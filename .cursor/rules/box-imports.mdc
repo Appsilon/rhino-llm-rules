@@ -3,47 +3,47 @@ description: Rules for importing using `box` package.
 globs: *.R
 alwaysApply: false
 ---
-# General rules
+### Importing
 
-Use only `box::use` for imports. Using `library` and `::` is forbidden.
-`box::use` statement (if needed) should be located at the top of the file.
-There can be two `box::use` statements per file. First one should include only R packages, second should only import other scripts.
-Imports in `box::use` should be sorted alphabetically.
-Using `[...]` is forbidden.
-All external functions in a script should be imported. This includes operators, like `%>%`.
-A script should only import functions that it uses.
+Use only `box::use` for imports. Using `library()` and `::` is forbidden.
 
-# Ways of importing
+`box::use` statements should be located at the top of the file with the following rules:
+- Group packages and local scripts into separate `box::use` blocks.
+- First block should import only R packages, second block should import only other scripts.
+- Imports in each block should be sorted alphabetically.
+- Using `[...]` is forbidden.
+- All external functions in a script should be explicitly imported, including operators like `%>%`.
+- A script should only import functions that it actually uses.
 
-There are two ways a package or a script can be imported.
-1. List imported functions - functions imported are listed in []
+There are two ways to import packages or scripts:
+
+1. **List specific imported functions** (preferred when importing ≤ 8 functions):
 ```r
 box::use(
-  dplyr[filter],
+  dplyr[filter, select, mutate],
 )
 
 filter(mtcars, cyl > 4)
 ```
 
-Use it if there are no more than 8 functions imported from this package/script.
-
-2. Import package and access functions with `$`
+2. **Import package/module and access functions with `$`** (use when importing > 8 functions):
 ```r
 box::use(
   dplyr,
 )
+
 dplyr$filter(mtcars, cyl > 4)
 ```
 
-When moving function into a different script, remember to adjust imports in `box::use`:
-1. Add import for all required functionns to the file where you moved the function.
-2. Make sure to follow the correct way of importing (direct or using $) in the new file. Modify it if needed.
-3. Remove redundant imports from the original file. 
+### When Moving Functions
+
+When moving a function to a different script:
+1. Add imports for all required functions to the destination file.
+2. Use the appropriate import style in the new file (direct or using `$`).
+3. Remove redundant imports from the original file.
 4. Import the moved function in the original file.
 
-Use it if there are more than 8 functions imported from this package/script.
+### Exporting
 
-# Exporting
-
-If a function is used only inside a script, it should not be exported.
-If a function is used by other scripts, it should be exported by adding `#' @eport` before the function.
+- If a function is used only inside a script, it should not be exported.
+- If a function is used by other scripts, export it by adding `#' @export` before the function definition.

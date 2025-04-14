@@ -2,4 +2,9 @@
 description: styleguide
 globs: *.R
 ---
-The maximum line length is 100 characters.
+- Maximum line length is 100 characters.
+- Use consistent indentation (2 spaces).
+- Prefer explicit returns for readability in complex functions.
+- Use snake_case for function and variable names.
+- Prefer descriptive variable names over abbreviations.
+- Add appropriate documentation for exported functions.
