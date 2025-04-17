@@ -3,7 +3,7 @@ description: Rhino modules in app/view
 globs: app/view/*.R
 alwaysApply: false
 ---
-When creating a new module in `app/view`, use the template:
+When creating a new module in `app/view`, use this template:
 ```r
 box::use(
   shiny[moduleServer, NS]
@@ -12,14 +12,22 @@ box::use(
 #' @export
 ui <- function(id) {
   ns <- NS(id)
-
+  # UI elements using ns() for namespacing
+  # ...
 }
 
 #' @export
 server <- function(id) {
   moduleServer(id, function(input, output, session) {
-
+    # Server logic here
   })
 }
 ```
 
+### Module Best Practices
+
+- Always use `ns()` to namespace input and output IDs in UI functions.
+- Keep modules focused on a specific functionality.
+- When accessing reactivity from parent modules, use proper input/output mechanisms.
+- Import only the specific Shiny functions you need.
+- Use logic functions from the `logic` directory for complex data processing.

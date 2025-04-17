@@ -1,0 +1,21 @@
+---
+description: project-structure
+globs: *
+---
+## Project Structure
+
+Rhino enforces a specific structure for robust and maintainable R Shiny applications:
+
+- `app.R`: The entry point recognized by RStudio. Do not modify this file.
+- `app/main.R`: The true application entry point where top-level UI and server are defined.
+- `app/logic/`: Contains application code independent from Shiny (data processing, external connections, etc.).
+- `app/view/`: Contains Shiny modules and UI code that depends on Shiny's reactive capabilities.
+- `app/static/`: Contains static assets (CSS, JavaScript, images).
+- `app/styles`: Contains SASS SCSS for styling the application.
+- `app/js`: Contains JavaScript files for client-side functionality.
+- `tests/testthat/`: Contains unit tests.
+
+### Key Principles
+- Place code that can be expressed without Shiny in the `logic` directory.
+- Place code that relies on reactivity or UI components in the `view` directory.
+- Use Shiny modules to isolate paired UI/Server code and prevent reactivity overlap.
