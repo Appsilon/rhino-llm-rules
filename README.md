@@ -29,7 +29,7 @@ Get in touch: <opensource@appsilon.com>.
 Explore the [Rhinoverse](https://www.appsilon.com/rhinoverse) - a family of R packages built around [Rhino](https://appsilon.github.io/rhino/)!
 
 Appsilon is a
-[**Posit (formerly RStudio) Full Service Certified Partner**](https://www.rstudio.com/certified-partners/).
+[**Posit (formerly RStudio) Full Service Certified Partner**](https://posit.co/our-partners/).
 
 <a href="https://appsilon.com/careers/">
   <img src="https://raw.githubusercontent.com/Appsilon/website-cdn/gh-pages/WeAreHiring1.png" alt="We are hiring!">
