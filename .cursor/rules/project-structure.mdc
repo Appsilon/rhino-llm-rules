@@ -11,6 +11,8 @@ Rhino enforces a specific structure for robust and maintainable R Shiny applicat
 - `app/logic/`: Contains application code independent from Shiny (data processing, external connections, etc.).
 - `app/view/`: Contains Shiny modules and UI code that depends on Shiny's reactive capabilities.
 - `app/static/`: Contains static assets (CSS, JavaScript, images).
+- `app/styles`: Contains SASS SCSS for styling the application.
+- `app/js`: Contains JavaScript files for client-side functionality.
 - `tests/testthat/`: Contains unit tests.
 
 ### Key Principles

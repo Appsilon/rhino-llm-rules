@@ -9,6 +9,8 @@ Rhino enforces a specific structure for robust and maintainable R Shiny applicat
 - `app/logic/`: Contains application code independent from Shiny (data processing, external connections, etc.).
 - `app/view/`: Contains Shiny modules and UI code that depends on Shiny's reactive capabilities.
 - `app/static/`: Contains static assets (CSS, JavaScript, images).
+- `app/styles`: Contains SASS SCSS files for styling the application.
+- `app/js`: Contains JavaScript files for client-side functionality.
 - `tests/testthat/`: Contains unit tests.
 
 ### Key Principles
@@ -35,7 +37,7 @@ There are two ways to import packages or scripts:
 1. **List specific imported functions** (preferred when importing ≤ 8 functions):
 ```r
 box::use(
-  dplyr[filter, select, mutate],
+  dplyr[filter],
 )
 
 filter(mtcars, cyl > 4)
@@ -48,6 +50,8 @@ box::use(
 )
 
 dplyr$filter(mtcars, cyl > 4)
+dplyr$select(mtcars, mpg, cyl)
+# ... other dplyr functions used
 ```
 
 ### When Moving Functions
@@ -68,15 +72,14 @@ When moving a function to a different script:
 When creating a new module in `app/view`, use this template:
 ```r
 box::use(
-  shiny[moduleServer, NS, tagList, div]
+  shiny[moduleServer, NS]
 )
 
 #' @export
 ui <- function(id) {
   ns <- NS(id)
-  tagList(
-    # UI elements using ns() for namespacing
-  )
+  # UI elements using ns() for namespacing
+  # ...
 }
 
 #' @export

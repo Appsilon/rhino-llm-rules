@@ -6,15 +6,14 @@ alwaysApply: false
 When creating a new module in `app/view`, use this template:
 ```r
 box::use(
-  shiny[moduleServer, NS, tagList, div]
+  shiny[moduleServer, NS]
 )
 
 #' @export
 ui <- function(id) {
   ns <- NS(id)
-  tagList(
-    # UI elements using ns() for namespacing
-  )
+  # UI elements using ns() for namespacing
+  # ...
 }
 
 #' @export
