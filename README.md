@@ -26,7 +26,7 @@ Once matured, we plan to include the rules as a part of Rhino setup.
 Developed with :heart: at [Appsilon](https://appsilon.com).
 Get in touch: <opensource@appsilon.com>.
 
-Explore the [Rhinoverse](https://rhinoverse.dev) - a family of R packages built around [Rhino](https://appsilon.github.io/rhino/)!
+Explore the [Rhinoverse](https://www.appsilon.com/rhinoverse) - a family of R packages built around [Rhino](https://appsilon.github.io/rhino/)!
 
 Appsilon is a
 [**Posit (formerly RStudio) Full Service Certified Partner**](https://www.rstudio.com/certified-partners/).
